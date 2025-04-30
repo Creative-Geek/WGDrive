@@ -1,6 +1,9 @@
 # WGDrive: Automated File Distribution System
 
 A robust, secure, and reliable system for automated file monitoring, downloading, and distribution via WhatsApp. Developed as a tailored solution for a client.
+<div align="center">
+<img src="https://github.com/user-attachments/assets/f177ad20-a68e-4cfd-b728-55f7c40de681" alt="Clueme Logo" width="500px">
+</div>
 
 ## ✨ Overview
 
@@ -29,14 +32,14 @@ This application monitors a designated Google Drive folder for new or updated fi
 - **Configuration**: Flexible JSON-based configuration manageable via the web interface.
 - **Error Handling**: Graceful error recovery with configurable alerts to notify the maintainer or the user.
 
-## Security Features🛡️
+## 🛡️ Security Features
 
 - Password-protected web interface for controlled access.
 - Secure credential storage practices.
 - Configurable access controls to define user permissions.
 - HTTPS support via ngrok for encrypted communication.
 
-## Deployment 🚢
+## 🚢 Deployment
 
 - **VPS Hosting**: Deployed on a Virtual Private Server for reliable 24/7 availability.
 - **Process Management**: Runs persistently in a tmux session.
