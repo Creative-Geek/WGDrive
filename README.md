@@ -1,2 +1,51 @@
-# WGDrive
+# WGDrive: Automated File Distribution System
+
 A robust, secure, and reliable system for automated file monitoring, downloading, and distribution via WhatsApp. Developed as a tailored solution for a client.
+
+## ✨ Overview
+
+This application monitors a designated Google Drive folder for new or updated files, automatically downloads them, and distributes them via WhatsApp to configured phone numbers. It features a clean web interface for monitoring and control, with real-time status updates and log streaming. Developed as a tailored solution for a specific client need.
+
+## 🚀 Key Features
+
+- **☁️ Google Drive Integration**: Securely monitors specific folders for new or modified files using the Google Drive API.
+- **🚚 Automated File Distribution**: Automatically downloads new files and sends them via WhatsApp to configured recipients.
+- 📱 **WhatsApp Integration**: Utilizes Mudslide for reliable and efficient WhatsApp messaging.
+- 📊 **Web Dashboard**: Clean, responsive interface for monitoring system status and configuration at a glance.
+- 👀 **Real-time Monitoring**: Live log streaming and instant status updates keep you informed.
+- 📧 **Email Alerts**: Configurable error notifications delivered promptly via the Resend API.
+- 🔐 **Secure Authentication**: Protected web interface with robust password authentication.
+- 🌐 **Remote Access**: Optional ngrok integration for secure, convenient remote access.
+- 💪 **Resilient Architecture**: Robust error handling and recovery mechanisms ensure reliability.
+- 📥 **File Queue Management**: Ensures reliable delivery of files, even after system restarts.
+
+## 💻 Technical Implementation
+
+- **Backend**: Python with Flask web framework.
+- **Production Server**: Waitress WSGI server for reliable production deployment.
+- **Architecture**: Single-process application leveraging background monitoring threads for concurrent tasks.
+- **Authentication**: Secure password hashing implemented using Werkzeug.
+- **Logging**: Comprehensive logging system with a real-time streaming capability for easy debugging.
+- **Configuration**: Flexible JSON-based configuration manageable via the web interface.
+- **Error Handling**: Graceful error recovery with configurable alerts to notify the maintainer or the user.
+
+## Security Features🛡️
+
+- Password-protected web interface for controlled access.
+- Secure credential storage practices.
+- Configurable access controls to define user permissions.
+- HTTPS support via ngrok for encrypted communication.
+
+## Deployment 🚢
+
+- **VPS Hosting**: Deployed on a Virtual Private Server for reliable 24/7 availability.
+- **Process Management**: Runs persistently in a tmux session.
+- **Automated Management**: Custom scripts for streamlined deployment, updates, and monitoring.
+- **Logging**: Comprehensive file logging with rotation for effective troubleshooting.
+- **Git Integration**: Seamless updates facilitated by a git pull mechanism.
+
+---
+
+_Note: This project was developed as a closed-source solution tailored for a specific client's requirements. The source code is not publicly available._
+
+---
