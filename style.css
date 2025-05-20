@@ -1,318 +1,210 @@
-/* General Styles */
+/* style.css - For WGDrive Homepage (index.html) */
+
+/* --- Variable Overrides & Global Styles --- */
+:root {
+    --bs-primary-rgb: 66, 72, 245; /* A modern, slightly desaturated blue/indigo */
+    --bs-secondary-rgb: 108, 117, 125; /* Default Bootstrap secondary */
+    --bs-success-rgb: 25, 135, 84;    /* Default Bootstrap success */
+    --bs-info-rgb: 13, 202, 240;      /* Default Bootstrap info */
+    --bs-light-rgb: 248, 249, 250;   /* Default Bootstrap light */
+    --bs-dark-rgb: 33, 37, 41;       /* Default Bootstrap dark */
+    --bs-font-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --bs-body-color: #212529;
+    --bs-body-bg: #ffffff;
+    --bs-link-hover-decoration: underline;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    font-family: var(--bs-font-sans-serif);
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    line-height: 1.7;
 }
 
-.container {
-    display: flex;
-    flex-grow: 1;
-    background-color: #fff;
-    margin: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden; /* Important for border-radius on children */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600; /* Slightly bolder headings */
+    color: var(--bs-dark-rgb);
 }
 
-.split {
-    padding: 25px;
-    box-sizing: border-box;
-    overflow-y: auto;
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem; /* Bootstrap 5 default, can be customized */
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
 }
 
-.left-pane {
-    width: 40%;
-    background-color: #f9f9f9;
-    border-right: 1px solid #ddd;
+.btn-primary {
+    /* Ensure variables are defined or use direct values */
+    background-color: rgb(var(--bs-primary-rgb));
+    border-color: rgb(var(--bs-primary-rgb));
 }
 
-.right-pane {
-    width: 60%;
-    background-color: #ffffff;
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+.btn-outline-secondary:hover {
+    transform: translateY(-2px);
 }
 
-h2, h3 {
-    color: #007bff; /* Primary color */
+
+/* --- Navbar Styling --- */
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.05rem;
 }
 
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+.navbar-brand:hover img {
+    transform: rotate(-10deg) scale(1.1);
 }
 
-button:hover {
-    background-color: #0056b3;
+.navbar .nav-link {
+    color: rgba(var(--bs-dark-rgb), 0.7);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem 0.25rem;
+}
+.navbar .nav-link:hover, .navbar .nav-link.active {
+    color: rgb(var(--bs-primary-rgb));
+    border-bottom: 2px solid rgb(var(--bs-primary-rgb));
+}
+.navbar .btn-outline-primary { /* Assuming this was intended for a Get Started button if it was outlined */
+    margin-left: 1rem;
 }
 
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+
+/* --- Hero Section --- */
+#hero {
+    background: linear-gradient(135deg, rgba(var(--bs-primary-rgb), 0.05), rgba(var(--bs-info-rgb), 0.05) 100%);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+#hero .display-4 {
+    color: var(--bs-dark-rgb);
+    font-weight: 700;
+}
+#hero p.lead {
+    color: #495057; /* Darker lead text */
+    margin-bottom: 2rem;
 }
 
-/* Dashboard Styles */
-#dashboard-initial-view, #dashboard-loggedin-view {
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
 
-#whatsapp-status-message, #whatsapp-status-loggedin {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #333;
+/* --- Features Section --- */
+#features {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
-
-#login-button {
-    display: block;
-    margin: 20px auto;
-}
-
-#phone-numbers-list {
-    margin-top: 10px;
-    padding-left: 0; /* Remove default list styling if it were a ul */
-}
-
-#phone-numbers-list p {
-    background-color: #e9ecef;
-    padding: 8px;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    font-size: 0.95em;
-}
-
-#logs-terminal {
-    background-color: #222; /* Dark background for terminal */
-    color: #0f0; /* Green text */
-    font-family: "Courier New", Courier, monospace;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 15px;
-    height: 150px;
-    overflow-y: scroll;
-    font-size: 0.9em;
-    border: 1px solid #444;
-}
-
-#logs-terminal p {
-    margin: 0 0 5px 0;
-    white-space: pre-wrap; /* Keep log formatting */
-}
-
-/* QR Code Modal Styles */
-#qr-modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    display: flex; /* Changed from none to flex for centering */
+#features .feature-icon-bg { /* This is the new class for the icon wrapper */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    
-    opacity: 0; /* Initially transparent */
-    visibility: hidden; /* Initially not visible and not interactive */
-    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s; /* Fade transition */
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(var(--bs-primary-rgb), 0.1); /* Light primary background */
+}
+#features .feature-icon-bg .material-icons-outlined { /* Targeting outlined icons specifically if used */
+    font-size: 2rem; /* Ensure icon size is consistent */
+    color: rgb(var(--bs-primary-rgb));
+}
+/* If using standard material-icons fill, target this instead or additionally */
+#features .feature-icon-bg .material-icons { 
+    font-size: 2rem;
+    color: rgb(var(--bs-primary-rgb));
 }
 
-#qr-modal.modal-visible {
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0s; /* Override transition delay for visibility when becoming visible */
-}
-
-.modal-content {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #aaa;
-    cursor: pointer;
-}
-
-.close-button:hover {
-    color: #777;
-}
-
-#qr-code-image {
-    width: 200px;
-    height: 200px;
-    border: 1px solid #ccc;
-    margin: 20px auto;
-    display: block;
-}
-
-#qr-fact-text {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 15px;
-    font-size: 0.9em;
-}
-
-/* Google Drive Simulation (Right Pane Initial) */
-#right-pane-content h2 { /* For "Simulated Google Drive" */
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#drop-zone {
-    border: 2px dashed #007bff;
-    border-radius: 8px;
-    padding: 40px;
-    text-align: center;
-    background-color: #f0f8ff; /* Light blue background */
-    color: #007bff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#drop-zone p {
-    font-size: 1.1em;
-    margin: 0;
-}
-
-#drop-zone.dragover { /* Class to be added by JS for visual feedback */
-    background-color: #e0efff;
-    border-color: #0056b3;
-    border-style: solid; /* Ensure it's not dashed when dragover */
-}
-
-/* WhatsApp Simulation (Dynamically added to Right Pane) */
-/* Some styles were inline in JS, these can augment or override if specific enough */
-.whatsapp-header {
-    /* background-color: #ededed; padding: 10px 15px; border-bottom: 1px solid #ccc; */
-    /* These are good, ensure they are applied if not overridden by inline */
-    font-size: 1em; /* Ensure h3 inside is not too large */
-}
-
-.whatsapp-header h3 {
-    margin: 0;
-    font-size: 1.1em; /* Control size of recipient name */
-    font-weight: normal; /* Changed from bold in some earlier thoughts */
-}
-
-.whatsapp-chat-area {
-    /* padding: 20px; height: calc(100% - 120px); overflow-y: auto; */
-    /* background-image: url(...); background-repeat: repeat; */
-    /* These are good */
-    display: flex;
-    flex-direction: column; /* To stack messages */
-}
-
-.message.sent {
-    /* background-color: #dcf8c6; padding: 8px 12px; border-radius: 7px; ... */
-    /* These are good. Add more specific styling if needed */
-    align-self: flex-end; /* Override margin-left: auto if flex direction is column */
-    /* margin-left: auto; */ /* Replaced by align-self if parent is flex/column */
-}
-
-.message.sent p {
-    margin: 0; /* Reset paragraph margins within message bubble */
-}
-
-.message.sent p:first-child { /* For "You" */
-     margin-bottom: 5px !important; /* Ensure space */
-}
-
-.whatsapp-input-area {
-    /* padding: 10px; border-top: 1px solid #ccc; background-color: #f0f0f0; */
-    /* These are good */
-    margin-top: auto; /* Push to bottom if chat area doesn't fill space */
-}
-
-.whatsapp-input-area input[type="text"] {
-    /* width: 100%; padding: 10px; border-radius: 20px; border: 1px solid #ddd; box-sizing: border-box; */
-    /* These are good */
-    background-color: #fff; /* Ensure it's not transparent */
+#features .col h4 { /* Changed from h3 in CSS to h4 to match HTML structure */
+    font-size: 1.25rem; /* Adjusted from 1.5rem to better fit h4 */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 
-/* Responsive Design */
+/* --- Demo Section --- */
+#demo-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--bs-light-rgb);
+}
+#demo-section iframe {
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+#demo-section iframe:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 0.75rem 2rem rgba(0,0,0,0.2);
+}
+
+
+/* --- Call to Action Section --- */
+#cta { /* Changed from #cta-final to match the ID in index.html */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background: linear-gradient(135deg, rgba(var(--bs-success-rgb), 0.05), rgba(var(--bs-info-rgb), 0.05) 100%);
+}
+
+
+/* --- Footer --- */
+/* Targeting the footer element directly as per HTML structure */
+footer.container > .py-3.my-4 { /* More specific selector if needed, or just 'footer' */
+    background-color: var(--bs-dark-rgb); /* This won't work as expected because footer is inside .container */
+    color: var(--bs-light-rgb);
+    padding-top: 3rem !important; /* Important to override .my-4 */
+    padding-bottom: 3rem !important; /* Important to override .my-4 */
+    margin-top: 0 !important; /* Reset margin if making it full-width */
+    margin-bottom: 0 !important;
+    max-width: 100%; /* To make it full width if it's inside a container */
+}
+/* A better approach for full-width footer background: */
+/* Move bg-dark to an outer container for the footer if possible in HTML, or: */
+.container-fluid.footer-wrapper { /* Add this class to a new div wrapping the footer in HTML */
+    background-color: var(--bs-dark-rgb);
+    color: var(--bs-light-rgb);
+}
+/* For existing structure, let's style the inner part: */
+footer .nav-link {
+    color: rgba(255,255,255,0.7);
+}
+footer .nav-link:hover {
+    color: #fff;
+}
+footer p.text-muted { /* Override for footer copyright text */
+    color: rgba(255,255,255,0.5) !important;
+}
+
+
+/* --- Utility & General Enhancements --- */
+.shadow-lg { /* Enhance default shadow */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+}
+.rounded-4 { /* More pronounced rounding. Bootstrap 5.3 uses .rounded-4 for 1rem */
+    border-radius: 1rem !important;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments if needed beyond Bootstrap defaults */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        margin: 0;
-        border-radius: 0;
-        height: 100vh; /* Full height on mobile */
+    #hero {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
-
-    .split {
-        width: 100% !important; /* Override inline or previous widths */
-        border-right: none;
-        border-bottom: 1px solid #ddd; /* Separator for stacked view */
+    #hero .display-4 {
+        font-size: 2.5rem; /* Adjust hero heading size */
     }
-
-    .left-pane {
-        height: auto; /* Adjust height as needed */
-        max-height: 50vh; /* Example: limit height */
+    #features .col {
+        text-align: center; /* Center feature items on smaller screens */
     }
-    
-    .right-pane {
-        flex-grow: 1; /* Allow right pane to take remaining space */
-    }
-
-    .modal-content {
-        width: 90%;
-    }
-
-    #logs-terminal {
-        height: 100px; /* Reduce height on smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .split {
-        padding: 15px;
-    }
-    h2 {
-        font-size: 1.3em;
-    }
-    button {
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
-    .modal-content {
-        padding: 20px;
-    }
-    #qr-code-image {
-        width: 150px;
-        height: 150px;
-    }
-    #drop-zone {
-        padding: 20px;
-        min-height: 150px;
-    }
-    #drop-zone p {
-        font-size: 1em;
+    #features .feature-icon-bg { /* This ensures the background div itself is centered */
+        margin-left: auto;
+        margin-right: auto;
     }
 }

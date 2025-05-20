@@ -1,0 +1,125 @@
+/* style.css */
+:root {
+    --bs-primary-rgb: 78, 52, 229; /* Example: A deep indigo/purple */
+    --bs-secondary-rgb: 108, 117, 125; /* Bootstrap's default secondary */
+    --bs-success-rgb: 25, 135, 84;   /* Bootstrap's default success */
+    --custom-light-gray: #f8f9fa;
+    --custom-dark-text: #343a40;
+    --custom-light-text: #6c757d;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* More Material Design like font, ensure it's available or add CDN link for it if needed. For now, rely on system fonts. */
+    background-color: var(--custom-light-gray);
+    color: var(--custom-dark-text);
+}
+
+.navbar {
+    /* If using a custom primary color for bg-dark, define it here or use Bootstrap variables */
+}
+
+.navbar-brand .material-icons {
+    font-size: 1.5rem; /* Adjust as needed */
+}
+
+#main-content-area .row {
+    /* This ensures the row itself doesn't scroll, but panes can */
+    overflow: hidden; 
+}
+
+#left-pane, #right-pane {
+    overflow-y: auto; /* Allow individual panes to scroll if content exceeds height */
+    height: calc(100vh - 56px); /* Adjust 56px if navbar height is different. This makes panes scrollable. */
+}
+
+/* On smaller screens where columns stack, we might want to adjust height */
+@media (max-width: 991.98px) { /* Bootstrap's lg breakpoint -1px */
+    #left-pane, #right-pane {
+        height: auto; /* Or a specific smaller height like 50vh each */
+        min-height: 300px; /* Ensure they are not too small */
+    }
+    #left-pane {
+        border-bottom: 1px solid #dee2e6; /* Add border when stacked */
+        border-right: none;
+    }
+}
+
+/* Custom card styling (placeholder for later) */
+.card {
+    border-radius: 0.5rem; /* Softer corners */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
+}
+
+/* Custom border style for drop zone */
+.border-dashed {
+    border-style: dashed !important; /* important to override Bootstrap's border if any */
+}
+
+#drop-zone {
+    transition: background-color 0.2s ease-in-out; /* For hover effect */
+}
+
+#drop-zone.dragover { /* Class to be added by JS */
+    background-color: #e9ecef; /* A light gray for hover feedback */
+}
+
+/* GDrive Simulation Styles */
+.gdrive-sidebar .nav-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+    margin-bottom: 0.2rem;
+    color: #343a40; /* Darker text for sidebar links */
+}
+
+.gdrive-sidebar .nav-link.active,
+.gdrive-sidebar .nav-link:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.1); /* Use primary color from Bootstrap via CSS var if possible, or define one */
+    color: rgb(var(--bs-primary-rgb)); /* Or a defined primary color */
+    border-radius: 0.25rem;
+}
+.gdrive-sidebar .nav-link .material-icons-outlined {
+    font-size: 1.25rem;
+}
+
+/* Styles for the NEW drop zone ID */
+.gdrive-files-area #gdrive-drop-zone { 
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.gdrive-files-area #gdrive-drop-zone.dragover { /* Class to be added by JS */
+    background-color: rgba(var(--bs-primary-rgb), 0.05) !important; /* Lighter primary shade */
+    border-color: rgb(var(--bs-primary-rgb)) !important;
+}
+
+.gdrive-item {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #e9ecef;
+}
+.gdrive-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1) !important;
+    border-color: rgb(var(--bs-primary-rgb));
+}
+.gdrive-item-active { /* For a selected/active item appearance */
+    border-color: rgb(var(--bs-primary-rgb)) !important;
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25) !important;
+}
+
+/* Ensure these variables are available or replace with direct values if :root isn't shared from main page */
+/* These are likely defined in main style.css, but iframe might not inherit them. */
+/* For demo_style.css, it might be safer to redefine or use direct values if Bootstrap variables are not cascading into iframe from parent. */
+/* However, Bootstrap classes on their own should work. These are for custom components. */
+:root { /* Re-declare if needed within demo context, or use fallback values */
+    --bs-primary-rgb: 66, 72, 245; /* Match main page if possible */
+}
+
+/* Transition styles for view switching */
+#drive-view-wrapper, #whatsapp-view-wrapper {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* whatsapp-view-wrapper is initially d-none. When d-none is removed, opacity should be 0 to fade in */
+#whatsapp-view-wrapper { 
+    opacity: 0; /* Default state when not d-none, before fade-in is triggered */
+}
