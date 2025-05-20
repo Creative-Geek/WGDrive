@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="split left-pane">
+            <!-- Dashboard content will go here -->
+            <div id="dashboard-initial-view">
+                <p id="whatsapp-status-message">WhatsApp not logged in</p>
+                <button id="login-button">Login</button>
+            </div>
+
+            <div id="dashboard-loggedin-view" style="display: none;">
+                <p id="whatsapp-status-loggedin">WhatsApp logged in</p>
+                <h3>Contacts:</h3>
+                <div id="phone-numbers-list">
+                    <!-- Phone numbers will be populated by JavaScript -->
+                </div>
+                <h3>Activity Logs:</h3>
+                <div id="logs-terminal">
+                    <!-- Log messages will be populated by JavaScript -->
+                    <p>Initializing session...</p>
+                    <p>Connection established.</p>
+                </div>
+            </div>
+            <!-- Other dashboard content will be added here later -->
+        </div>
+        <div class="split right-pane">
+            <!-- Google Drive/WhatsApp content will go here -->
+            <div id="right-pane-content">
+                <h2>Simulated Google Drive</h2>
+                <div id="drop-zone">
+                    <p>Drag and drop a file here to upload</p>
+                    <!-- Optionally, you can add an input type="file" hidden here for accessibility,
+                         although the primary interaction is drag and drop for this demo. -->
+                </div>
+                <!-- Content of this pane will change after file drop -->
+            </div>
+        </div>
+    </div>
+
+    <div id="qr-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span> <!-- Optional close button -->
+            <h2>Scan QR Code to Login</h2>
+            <img id="qr-code-image" src="#" alt="QR Code will appear here" style="width: 200px; height: 200px; border: 1px solid #ccc; margin: 10px auto; display: block;">
+            <p><em>(This is a simulation. No actual scanning needed.)</em></p>
+            <p id="qr-fact-text" style="text-align: center; font-style: italic;"></p> <!-- To display the fact -->
+            <button id="simulate-login-button">Simulate Login</button>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
