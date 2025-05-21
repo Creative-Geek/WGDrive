@@ -99,13 +99,14 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 4rem;
 }
 #features .feature-icon-bg { /* This is the new class for the icon wrapper */
-    display: inline-flex;
+    display: flex; /* Changed from inline-flex */
     align-items: center;
     justify-content: center;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 1rem;
-    border-radius: 0.75rem;
+    width: 4rem;    /* Fixed width */
+    height: 4rem;   /* Fixed height */
+    flex-shrink: 0; /* Prevent shrinking */
+    /* margin-bottom: 1rem; /* Removed as me-3 on the div handles spacing for side-by-side layout */
+    border-radius: 0.75rem; /* Or customize for more Material 3 feel later, e.g. 1rem or more */
     background-color: rgba(var(--bs-primary-rgb), 0.1); /* Light primary background */
 }
 #features .feature-icon-bg .material-icons-outlined { /* Targeting outlined icons specifically if used */
