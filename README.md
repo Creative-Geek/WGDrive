@@ -2,7 +2,7 @@
 
 A robust, secure, and reliable system for automated file monitoring, downloading, and distribution via WhatsApp. Developed as a tailored solution for a client.
 <div align="center">
-<img src="https://github.com/user-attachments/assets/f177ad20-a68e-4cfd-b728-55f7c40de681" alt="Clueme Logo" width="500px">
+<img src="https://github.com/user-attachments/assets/f177ad20-a68e-4cfd-b728-55f7c40de681" alt="WGDrive Logo" width="500px">
 </div>
 
 ## ✨ Overview
